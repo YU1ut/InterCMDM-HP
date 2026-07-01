@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Causal Motion Diffusion Models for Autoregressive Motion Generation">
-  <meta name="keywords" content="CMDM">
+  <meta name="description" content="InterCMDM: Block-Causal Diffusion for Autoregressive Human Interaction Generation">
+  <meta name="keywords" content="InterCMDM, human interaction generation, motion diffusion, autoregressive generation">
   <meta name="google-site-verification" content="ciQsol-i_rwd2kkpVI_G-EFX4g72KA2HF-cDUi52lIo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>CMDM</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>InterCMDM</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -21,15 +18,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script defer src="static/js/index.js"></script>
 </head>
 
-<body>
+<body class="sidebar-hidden">
 
   <div id="sidebar" class="sidebar" role="navigation" aria-label="Primary">
     <div class="sidebar-content">
@@ -47,28 +42,14 @@
             <span class="sidebar-label">Method</span>
           </span>
         </a>
-        <a class="sidebar-item" href="#long-horizon-humanml3d">
+        <a class="sidebar-item" href="#interaction-generation">
+          <span class="sidebar-text">
+            <span class="sidebar-label">Interaction</span>
+          </span>
+        </a>
+        <a class="sidebar-item" href="#long-horizon">
           <span class="sidebar-text">
             <span class="sidebar-label">Long-Horizon</span>
-            <span class="sidebar-sublabel">HumanML3D</span>
-          </span>
-        </a>
-        <a class="sidebar-item" href="#text-to-motion-humanml3d">
-          <span class="sidebar-text">
-            <span class="sidebar-label">Text-to-Motion</span>
-            <span class="sidebar-sublabel">HumanML3D</span>
-          </span>
-        </a>
-        <a class="sidebar-item" href="#long-horizon-snapmogen">
-          <span class="sidebar-text">
-            <span class="sidebar-label">Long-Horizon</span>
-            <span class="sidebar-sublabel">SnapMoGen</span>
-          </span>
-        </a>
-        <a class="sidebar-item" href="#text-to-motion-snapmogen">
-          <span class="sidebar-text">
-            <span class="sidebar-label">Text-to-Motion</span>
-            <span class="sidebar-sublabel">SnapMoGen</span>
           </span>
         </a>
         <a class="sidebar-item" href="#BibTeX">
@@ -82,33 +63,31 @@
 
   <main class="main-content">
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title">Causal Motion Diffusion Models for Autoregressive Motion Generation </h1>
-            <h2 class="title is-size-4 publication-title">CVPR 2026</h2>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://yu1ut.com">Qing Yu</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://akihisa-watanabe.github.io/">Akihisa Watanabe</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://www.kfworks.com">Kent Fujiwara</a><sup>1</sup>,</span>
-            </div>
-  
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>LY Corporation</span>
-              <span class="author-block"><sup>2</sup>Waseda University</span>
-            </div>
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-2 publication-title">InterCMDM: Block-Causal Diffusion for Autoregressive Human Interaction Generation</h1>
+              <h2 class="title is-size-4 publication-title">ECCV 2026</h2>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://yu1ut.com">Qing Yu</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.kfworks.com">Kent Fujiwara</a>
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">LY Corporation</span>
+              </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2602.22594"
+                  <a href=""
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -117,7 +96,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2602.22594"
+                  <a href=""
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="ai ai-arxiv"></i>
@@ -127,972 +106,449 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/YU1ut/CMDM"
+                  <a href=""
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
                     </a>
-                </span>
+                  </span>
+                </div>
               </div>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <center><img src="./assets/figures/overview.webp"></center>
-        <h2 class="subtitle has-text-centered">
-          We propose CMDM, a novel causal motion diffusion framework that unifies causal autoregression and diffusion denoising within a motion–language–aligned latent space.
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  <section id="abstract" class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Recent advances in motion diffusion models have substantially improved the realism of human motion synthesis. 
-              However, existing approaches either rely on full-sequence diffusion models with bidirectional generation, which limits temporal causality and real-time applicability, or autoregressive models that suffer from instability and cumulative errors. 
-              In this work, we present Causal Motion Diffusion Models (CMDM), a unified framework for autoregressive motion generation based on a causal diffusion transformer that operates in a semantically aligned latent space. 
-              CMDM builds upon a Motion-Language-Aligned Causal VAE (MAC-VAE), which encodes motion sequences into temporally causal latent representations. 
-              On top of this latent representation, an autoregressive diffusion transformer is trained using causal diffusion forcing to perform temporally ordered denoising across motion frames. 
-              To achieve fast inference, we introduce a frame-wise sampling schedule with causal uncertainty, where each subsequent frame is predicted from partially denoised previous frames. 
-              The resulting framework supports high-quality text-to-motion generation, streaming synthesis, and long-horizon motion generation at interactive rates. 
-              Experiments on HumanML3D and SnapMoGen demonstrate that CMDM outperforms existing diffusion and autoregressive models in both semantic fidelity and temporal smoothness, while substantially reducing inference latency.
-            </p>
-          </div>
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img class="paper-figure" src="./assets/figures/overview.png" alt="Comparison of prior interaction generation methods and InterCMDM">
+          <h2 class="subtitle has-text-centered">
+            InterCMDM performs block-wise autoregressive interaction generation with dual causal streams and structured interaction masks.
+          </h2>
         </div>
       </div>
-      <!--/ Abstract. -->
-    </div>
-  </section>
+    </section>
 
-
-  <section id="method" class="section">
-    <div class="container is-max-desktop">
-      <br>
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Method</h2>
-      </div>
-      <br>
-      <div class="content">
-        <center><img src="./assets/figures/pipeline.webp"/></center>
-        <p>
-          Overview of the proposed CMDM framework. 
-          CMDM consists of three key components: 
-          (a) MAC-VAE, which encodes motion sequences into motion–language–aligned and temporally causal latent features using a causal encoder–decoder structure supervised by motion-language model alignment; 
-          (b) Causal-DiT, which performs diffusion denoising with causal self-attention and cross-attention to text embeddings, ensuring temporally ordered and semantically consistent frame refinement; 
-          and (c) Causal Diffusion Forcing, which applies independent frame-level noise during training and a causal uncertainty schedule during inference, where the redness intensity represents the noise level. 
-          This design enables CMDM to achieve temporally consistent, semantically aligned, and efficient text-to-motion generation suitable for streaming and long-horizon synthesis.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!---           T2M Comparisions        -->
-  <section id="long-horizon-humanml3d" class="hero is-small">
-    <div class="hero-body">
-      <br>
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Long-Horizon Motion Generation</h2>
-      </div>
-      <div class="has-text-centered" style="margin: 0.5rem 0 1rem;">
-        <h2 class="title is-4">Dataset: HumanML3D</h2>
-      </div>
-      <br>
-      <div class="columns is-centered has-text-centered">
-      </div>
-      <div class="container">
-        <div style="height: 7px;"></div>
+    <section id="abstract" class="section">
+      <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
-        </div>
-
-        <div class="container">
-          <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-          <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-            <i id="long-horizon-rotating-caption" class="horizon-rotating-caption"></i>
-          </p>
-          <div class="columns is-centered">
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/flow_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">FlowMDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/mardm_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">MARDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/ours_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">Ours</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div style="height: 7px;"></div>
-          <div class="columns is-centered has-text-centered">
-          </div>
-          <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i id="long-horizon-rotating-caption-2" class="horizon-rotating-caption"></i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/flow_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">FlowMDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/mardm_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MARDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/ours_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br/>
-      <div class="container">
-        <div style="height: 7px;"></div>
-        <div class="columns is-centered has-text-centered">
-        </div>
-        <div class="container">
-          <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-          <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-            <i id="long-horizon-rotating-caption-3" class="horizon-rotating-caption"></i>
-          </p>
-          <div class="columns is-centered">
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/flow_3.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">FlowMDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/mardm_3.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">MARDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/videos/ours_3.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">Ours</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br/>
-      <div class="container">
-        <div style="height: 7px;"></div>
-        <div class="columns is-centered has-text-centered">
-          <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i id="long-horizon-rotating-caption-4" class="horizon-rotating-caption"></i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/flow_4.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">FlowMDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/mardm_4.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MARDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/ours_4.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="container">
-          <div style="height: 7px;"></div>
-          <div class="columns is-centered has-text-centered">
-          </div>
-          <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i id="long-horizon-rotating-caption-5" class="horizon-rotating-caption"></i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/flow_5.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">FlowMDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/mardm_5.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MARDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/videos/ours_5.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!---           Gallery T2M      -->
-  <section id="text-to-motion-humanml3d" class="hero is-light is-small">
-    <div class="hero-body">
-      <br>
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Text-to-Motion Generation</h2>
-      </div>
-      <div class="has-text-centered" style="margin: 0.5rem 0 1rem;">
-        <h2 class="title is-4">Dataset: HumanML3D</h2>
-      </div>
-      <br>
-      <div class="container">
-        <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-          <i> A person <span style="color:#06C755" ;>raises both knees alternately</span> <span style="color:#DF1817"
-              ;>in a marching motion</span> <span style="color:#00B0F0" ;>in place</span> while keeping rhythm.</i>
-        </p>
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content has-text-centered">
-              <div class="videobox">
-                <video poster="" autoplay controls muted loop height="100%">
-                  <source src="./assets/t2m_videos/momask_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <h2 class="subtitle is-5">MoMask</h2>
-            </div>
-          </div>
-          <div class="column">
-            <div class="content has-text-centered">
-              <div class="videobox">
-                <video poster="" autoplay controls muted loop height="100%">
-                  <source src="./assets/t2m_videos/lcm_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <h2 class="subtitle is-5">MotionLCM V2</h2>
-            </div>
-          </div>
-          <div class="column">
-            <div class="content has-text-centered">
-              <div class="videobox">
-                <video poster="" autoplay controls muted loop height="100%">
-                  <source src="./assets/t2m_videos/stable_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <h2 class="subtitle is-5">StableMoFusion</h2>
-            </div>
-          </div>
-          <div class="column">
-            <div class="content has-text-centered">
-              <div class="videobox">
-                <video poster="" autoplay controls muted loop height="100%">
-                  <source src="./assets/t2m_videos/ours_1.mp4" type="video/mp4">
-                </video>
-              </div>
-              <h2 class="subtitle is-5">Ours</h2>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-            <i> A person <span style="color:#06C755" ;>crouches down from standing</span>, <span style="color:#DF1817"
-                ;>touches the ground with fingertips</span>, and then <span style="color:#00B0F0" ;>slowly stands
-                up</span>.
-            </i>
-          </p>
-          <div class="columns is-centered">
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/t2m_videos/momask_2.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">MoMask</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/t2m_videos/lcm_2.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">MotionLCM V2</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/t2m_videos/stable_2.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">StableMoFusion</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/t2m_videos/ours_2.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">Ours</h2>
-              </div>
-            </div>
-          </div>
-          <div class="container">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> The person <span style="color:#06C755" ;>rotates their arms in a circular motion</span> while <span
-                  style="color:#DF1817" ;>walking forward</span>. </i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/t2m_videos/momask_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/t2m_videos/lcm_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MotionLCM V2</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/t2m_videos/stable_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">StableMoFusion</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/t2m_videos/ours_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-            <div class="container">
-              <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-                <i> A man <span style="color:#06C755" ;>walks forward</span>, <span style="color:#DF1817" ;>kicks a ball
-                    with left leg</span>, then <span style="color:#00B0F0" ;>walks backward</span>.</i>
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Text-conditioned human interaction generation must capture both long-range temporal causality within each individual and tightly coupled coordination between partners. Existing interaction diffusion models typically denoise full sequences using bidirectional attention, which obscures causality and hinders streaming and long-horizon generation. Autoregressive alternatives enforce causality but often suffer from temporal drift, leading to coordination degradation and unstable interaction dynamics over time. We propose InterCMDM, a block-causal latent diffusion framework for autoregressive two-person interaction generation. InterCMDM introduces a Dual-Stream Causal Diffusion Transformer that maintains separate causal streams for each person while modeling inter-person dependencies via unified dual-stream attention with multi-task attention masks. These masks unify interaction modeling within a single attention mechanism and support diverse coordination behaviors, including simultaneous actions, reactive responses, leader-follower dynamics, and independent motion. By training a single model across these mask configurations as a form of data augmentation, InterCMDM enables controllable interaction generation by simply selecting the desired attention mask at inference time. Finally, a block-wise diffusion objective enables stable latent rollout over long sequences without repeated decode-encode cycles. InterCMDM achieves state-of-the-art performance on InterHuman and Inter-X, improving text-motion alignment, realism, and long-horizon continuity.
               </p>
-              <div class="columns is-centered">
-                <div class="column">
-                  <div class="content has-text-centered">
-                    <div class="videobox">
-                      <video poster="" autoplay controls muted loop height="100%">
-                        <source src="./assets/t2m_videos/momask_4.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <h2 class="subtitle is-5">MoMask</h2>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="content has-text-centered">
-                    <div class="videobox">
-                      <video poster="" autoplay controls muted loop height="100%">
-                        <source src="./assets/t2m_videos/lcm_4.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <h2 class="subtitle is-5">MotionLCM V2</h2>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="content has-text-centered">
-                    <div class="videobox">
-                      <video poster="" autoplay controls muted loop height="100%">
-                        <source src="./assets/t2m_videos/stable_4.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <h2 class="subtitle is-5">StableMoFusion</h2>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="content has-text-centered">
-                    <div class="videobox">
-                      <video poster="" autoplay controls muted loop height="100%">
-                        <source src="./assets/t2m_videos/ours_4.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <h2 class="subtitle is-5">Ours</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="container">
-                <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-                  <i> A person <span style="color:#06C755" ;>runs forward</span> while <span style="color:#DF1817"
-                      ;>pretending to be a bird taking flight</span>.</i>
-                </p>
-                <div class="columns is-centered">
-                  <div class="column">
-                    <div class="content has-text-centered">
-                      <div class="videobox">
-                        <video poster="" autoplay controls muted loop height="100%">
-                          <source src="./assets/t2m_videos/momask_5.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <h2 class="subtitle is-5">MoMask</h2>
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="content has-text-centered">
-                      <div class="videobox">
-                        <video poster="" autoplay controls muted loop height="100%">
-                          <source src="./assets/t2m_videos/lcm_5.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <h2 class="subtitle is-5">MotionLCM V2</h2>
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="content has-text-centered">
-                      <div class="videobox">
-                        <video poster="" autoplay controls muted loop height="100%">
-                          <source src="./assets/t2m_videos/stable_5.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <h2 class="subtitle is-5">StableMoFusion</h2>
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="content has-text-centered">
-                      <div class="videobox">
-                        <video poster="" autoplay controls muted loop height="100%">
-                          <source src="./assets/t2m_videos/ours_5.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <h2 class="subtitle is-5">Ours</h2>
-                    </div>
-                  </div>
-                </div>
-                <div class="container">
-                  <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-                    <i> A person <span style="color:#06C755" ;>is reacting with surprise</span>, <span
-                        style="color:#DF1817" ;>stepping back quickly</span> and <span style="color:#00B0F0" ;>raising
-                        their hands</span>.</i>
-                  </p>
-                  <div class="columns is-centered">
-                    <div class="column">
-                      <div class="content has-text-centered">
-                        <div class="videobox">
-                          <video poster="" autoplay controls muted loop height="100%">
-                            <source src="./assets/t2m_videos/momask_6.mp4" type="video/mp4">
-                          </video>
-                        </div>
-                        <h2 class="subtitle is-5">MoMask</h2>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="content has-text-centered">
-                        <div class="videobox">
-                          <video poster="" autoplay controls muted loop height="100%">
-                            <source src="./assets/t2m_videos/lcm_6.mp4" type="video/mp4">
-                          </video>
-                        </div>
-                        <h2 class="subtitle is-5">MotionLCM V2</h2>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="content has-text-centered">
-                        <div class="videobox">
-                          <video poster="" autoplay controls muted loop height="100%">
-                            <source src="./assets/t2m_videos/stable_6.mp4" type="video/mp4">
-                          </video>
-                        </div>
-                        <h2 class="subtitle is-5">StableMoFusion</h2>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="content has-text-centered">
-                        <div class="videobox">
-                          <video poster="" autoplay controls muted loop height="100%">
-                            <source src="./assets/t2m_videos/ours_6.mp4" type="video/mp4">
-                          </video>
-                        </div>
-                        <h2 class="subtitle is-5">Ours</h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!---           SnapMoGen Long-Horizon      -->
-  <section id="long-horizon-snapmogen" class="hero is-small">
-    <div class="hero-body">
-      <br>
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Long-Horizon Motion Generation</h2>
-      </div>
-      <div class="has-text-centered" style="margin: 0.5rem 0 1rem;">
-        <h2 class="title is-4">Dataset: SnapMoGen</h2>
-      </div>
-      <br>
-      <div class="columns is-centered has-text-centered">
-      </div>
-      <div class="container">
-        <div style="height: 7px;"></div>
+    <section id="method" class="section">
+      <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Method</h2>
         </div>
-
-        <div class="container">
-          <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-          <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-            <i id="snap-long-horizon-caption-1" class="horizon-rotating-caption"></i>
+        <div class="content">
+          <figure class="method-figure">
+            <img class="paper-figure" src="./assets/figures/pipeline.png" alt="InterCMDM pipeline">
+          </figure>
+          <p>
+            InterCMDM is a block-causal latent diffusion framework for structured two-person interaction generation. Motion sequences are encoded into compact latent blocks, denoised by a Dual-Stream Causal Diffusion Transformer, and decoded back into coordinated motion while preserving autoregressive temporal structure. Each person is encoded independently with a shared temporal motion VAE, which downsamples motion into compact latent tokens and partitions those tokens into temporal blocks. The transformer keeps separate streams for Person 1 and Person 2, then couples them through unified masked attention and text cross-attention. The block-causal mask allows tokens to use the current and previous blocks while blocking future context. At inference, selectable masks control coordination modes including simultaneous interaction, reactive response, leader-follower dependency, and independent motion. Generation rolls out clean latent blocks autoregressively and decodes them into long-horizon two-person motion without repeated decode-encode prefix cycles.
           </p>
-          <div class="columns is-centered">
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/snap_videos/flow_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">FlowMDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/snap_videos/mardm_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">MARDM</h2>
-              </div>
-            </div>
-            <div class="column">
-              <div class="content has-text-centered">
-                <div class="videobox">
-                  <video poster="" autoplay controls muted loop height="100%">
-                    <source src="./assets/snap_videos/ours_1.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <h2 class="subtitle is-5">Ours</h2>
-              </div>
-            </div>
-          </div>
         </div>
-        <br/>
+      </div>
+    </section>
+
+    <section id="interaction-generation" class="hero is-small">
+      <div class="hero-body">
         <div class="container">
-          <div style="height: 7px;"></div>
           <div class="columns is-centered has-text-centered">
-          </div>
-          <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i id="snap-long-horizon-caption-2" class="horizon-rotating-caption"></i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/flow_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">FlowMDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/mardm_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MARDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/ours_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Interaction Generation</h2>
+              <p class="subtitle">Single-prompt 180-frame comparisons between InterMask and InterCMDM.</p>
             </div>
           </div>
-        </div>
 
-        <br/>
+          <div class="demo-grid">
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 1</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">The two individuals maintain their original posture, while their bodies continue to rotate 90 degrees clockwise to the right.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 2</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">These two are walking around in a circle while holding hands.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 3</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">One is observing the motion of a cardboard while the other maintains their hold on the cardboard.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 4</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">One person falls down, and the other person squats down in front of them, attempting to lift them up.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_4.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 5</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">Both persons bend over, squat with bent knees, and swing their arms downward from the upper right to the front of their legs.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_5.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_5.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 6</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">The first person keeps walking, and the second picks up a piece of paper and takes two steps to catch up to the first person. The second pats the first person with the paper, causing the first person to turn around.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_6.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_6.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 7</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">Two individuals are seated on chairs, with one person seated behind the other.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_7.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_7.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Case 8</h3>
+                <span class="demo-tag">180 Frames</span>
+              </div>
+              <p class="demo-prompt">Two people crouch down and touch the ground with their hands.</p>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/intermask_8.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/interaction/ours_8.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="long-horizon" class="hero is-light is-small">
+      <div class="hero-body">
         <div class="container">
-          <div style="height: 7px;"></div>
           <div class="columns is-centered has-text-centered">
-          </div>
-          <div class="container">
-            <div class="has-text-centered" style="margin-bottom: 10px;"> </div>
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i id="snap-long-horizon-caption-3" class="horizon-rotating-caption"></i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/flow_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">FlowMDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/mardm_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MARDM</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_videos/ours_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Long-Horizon Interaction Generation</h2>
+              <p class="subtitle">Autoregressive prompt chains composed from multiple 120-frame segments.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
 
-  <section id="text-to-motion-snapmogen" class="hero is-light is-small">
-    <div class="hero-body">
-      <br>
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Text-to-Motion Generation</h2>
-      </div>
-      <div class="has-text-centered" style="margin: 0.5rem 0 1rem;">
-        <h2 class="title is-4">Dataset: SnapMoGen</h2>
-      </div>
-      <br>
-      <div class="container">
+          <div class="demo-grid">
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 1</h3>
+                <span class="demo-tag">4 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>Two people greet each other by shaking hands.</li>
+                <li>They greet each other by bowing.</li>
+                <li>One person pushes the other with both hands.</li>
+                <li>Two people are throwing punches at each other.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </article>
 
-        <!-- Row 1: prompts 1 and 2 -->
-        <div class="columns is-centered">
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person <span style="color:#06C755" ;>is walking proudly</span> <span style="color:#00B0F0" ;>like a runway model</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_1.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 2</h3>
+                <span class="demo-tag">4 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>Both engage in fencing practice, and one person successfully strikes the other's head with their sword.</li>
+                <li>Two people run in a circle.</li>
+                <li>One person approaches the other person and hands over an object.</li>
+                <li>Two people kick each other.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_2.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_1.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 3</h3>
+                <span class="demo-tag">4 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>Two people are dancing together.</li>
+                <li>Two people stand tall with arms open.</li>
+                <li>One person is running, while the other person cheers and encourages.</li>
+                <li>One person falls down and the other helps him.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_3.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person is pretending to <span style="color:#06C755" ;>row a boat</span> with <span style="color:#DF1817" ;>slow, rhythmic strokes</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 4</h3>
+                <span class="demo-tag">5 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>After one person kicks the other, the second person defends using their arm to block.</li>
+                <li>One person walks three steps clockwise, swinging their arms. The other steps forward and lets both arms hang naturally.</li>
+                <li>The first person crosses and opens their hands, jumps on the left foot, swings both hands back, then the right forward. The other steps forward, opens their hands.</li>
+                <li>Two humans are going down into a crouching position and standing up.</li>
+                <li>Two people are standing side by side.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_4.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_2.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 5</h3>
+                <span class="demo-tag">5 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>Two people are dancing in each other's arms.</li>
+                <li>Two people play rock, paper, scissors.</li>
+                <li>Two people are practicing tai chi.</li>
+                <li>The two embrace each other closely.</li>
+                <li>The first person places their right hand on the back of the other person and they both move in one direction.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_5.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_5.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <!-- Row 2: prompts 3 and 4 -->
-        <div class="columns is-centered">
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person is <span style="color:#06C755" ;>reaching out</span> to <span style="color:#DF1817" ;>catch a falling object</span> with <span style="color:#00B0F0" ;>quick reflexes</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
+            </article>
+
+            <article class="demo-card">
+              <div class="demo-card-header">
+                <h3 class="title is-5">Sequence 6</h3>
+                <span class="demo-tag">5 x 120 Frames</span>
+              </div>
+              <ol class="prompt-chain">
+                <li>One person approaches the other person and lightly taps them on the shoulder. The other person covers their face and cries.</li>
+                <li>Two people walk backward.</li>
+                <li>Two people are jumping face to face.</li>
+                <li>The two are training in taekwondo leg attack techniques.</li>
+                <li>Two performers sway their bodies while dancing.</li>
+              </ol>
+              <div class="video-comparison">
+                <div class="video-panel">
+                  <h4>InterMask</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/intermask_6.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-panel is-ours">
+                  <h4>InterCMDM</h4>
+                  <video autoplay controls muted loop playsinline preload="metadata">
+                    <source src="./assets/videos/long_horizon/ours_6.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_3.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person is <span style="color:#06C755" ;>tiptoeing across a creaky floor</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_4.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_4.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Row 3: prompts 5 and 6 -->
-        <div class="columns is-centered">
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person is <span style="color:#06C755" ;>running forward</span> <span style="color:#00B0F0" ;>like a chicken</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_5.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_5.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <p class="subtitle handwriting has-text-centered" style="font-weight: 200; font-size: 1.25rem;">
-              <i> A person is <span style="color:#06C755" ;>moving as if underwater</span> with <span style="color:#00B0F0" ;>slow, fluid motions</span>.</i>
-            </p>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/momask_6.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">MoMask++</h2>
-                </div>
-              </div>
-              <div class="column">
-                <div class="content has-text-centered">
-                  <div class="videobox">
-                    <video poster="" autoplay controls muted loop height="100%">
-                      <source src="./assets/snap_t2m_videos/ours_6.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <h2 class="subtitle is-5">Ours</h2>
-                </div>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
-  </section>
+    </section>
 
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@inproceedings{yu2026causal,
-      title={Causal Motion Diffusion Models for Autoregressive Motion Generation},
-      author={Yu, Qing and Watanabe, Akihisa and Fujiwara, Kent},
-      booktitle={CVPR},
-      year={2026}
-  }</code></pre>
-    </div>
-  </section>
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{yu2026intercmdm,
+  title={InterCMDM: Block-Causal Diffusion for Autoregressive Human Interaction Generation},
+  author={Yu, Qing and Fujiwara, Kent},
+  booktitle={ECCV},
+  year={2026}
+}</code></pre>
+      </div>
+    </section>
 
   </main>
-  
+
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">

@@ -1,252 +1,139 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+document.addEventListener('DOMContentLoaded', function() {
+  var carouselOptions = {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000
+  };
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
+  if (window.bulmaCarousel) {
+    bulmaCarousel.attach('.carousel', carouselOptions);
+  }
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 1,
-			loop: true,
-			infinite: true,
-			autoplay: true,
-			autoplaySpeed: 5000,
-    }
-
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
+  if (window.bulmaSlider) {
     bulmaSlider.attach();
+  }
 
-    // Utility to attach a time-synced caption rotation to a caption element and its row of videos
-    var attachTimedCaption = function(captionElementId, captionsTimeline) {
-        var el = document.getElementById(captionElementId);
-        if (!el) return;
-        var container = el.closest('.container');
-        if (!container) return;
-        var videos = container.querySelectorAll('video');
-        if (!videos || videos.length === 0) return;
-        var video = videos[0]; // drive timeline from the first video in the row
+  var sidebar = document.getElementById('sidebar');
+  var sidebarItems = document.querySelectorAll('.sidebar-item');
+  var sections = ['abstract', 'method', 'interaction-generation', 'long-horizon', 'BibTeX'];
+  var body = document.body;
 
-        var lastCaptionIndex = -1;
-        var lastTime = 0;
-        var updateCaptionByTime = function() {
-            var t = video.currentTime || 0;
-            if (t + 0.05 < lastTime) {
-                lastCaptionIndex = -1;
-            }
-            var idx = Math.floor(t / 3) % captionsTimeline.length;
-            if (idx !== lastCaptionIndex) {
-                el.innerHTML = captionsTimeline[idx] || "";
-                lastCaptionIndex = idx;
-            }
-            lastTime = t;
-        };
+  if (!sidebar || sidebarItems.length === 0) {
+    return;
+  }
 
-        var initOnce = function() {
-            updateCaptionByTime();
-            video.removeEventListener('loadedmetadata', initOnce);
-            video.removeEventListener('playing', initOnce);
-        };
-        video.addEventListener('loadedmetadata', initOnce);
-        video.addEventListener('playing', initOnce);
-        video.addEventListener('timeupdate', updateCaptionByTime);
-    };
+  function updateActiveSidebarItem() {
+    var scrollPos = window.scrollY + 150;
+    var activeIndex = 0;
 
-    // First row captions (maps to ./videos/flow_1.mp4, mardm_1.mp4, ours_1.mp4 timeline)
-    attachTimedCaption('long-horizon-rotating-caption', [
-        "1: A person is <span style='color:#06C755'>walking forward</span>.",
-        "2: A person <span style='color:#06C755'>sits down on a chair</span>.",
-        "3: A person <span style='color:#06C755'>turns around</span> and <span style='color:#DF1817'>walks backward</span>.",
-        "4: A person <span style='color:#06C755'>is picking up his toolbox</span>.",
-        "5: A person <span style='color:#06C755'>does a jumping jack motion</span>.",
-        "6: The man <span style='color:#06C755'>is lifting both arms</span>.",
-        "7: A person <span style='color:#06C755'>slowly jumped forward</span>."
-    ]);
+    for (var i = 0; i < sections.length; i++) {
+      var section = document.getElementById(sections[i]);
+      if (!section) {
+        continue;
+      }
 
-    // Second row captions (your provided text_list) for the next videos row
-    attachTimedCaption('long-horizon-rotating-caption-2', [
-        "1: A person <span style='color:#06C755'>is jumping on one foot</span>.",
-        "2: A person <span style='color:#06C755'>walks like a zombie</span>.",
-        "3: A person <span style='color:#06C755'>pretend to hold a ball in the right hand</span>, <span style='color:#DF1817'>toss the ball upward</span>.",
-        "4: A person <span style='color:#06C755'>walks while holding onto a handrail</span>.",
-        "5: A person <span style='color:#06C755'>kicks something with the left foot</span>.",
-        "6: A man <span style='color:#06C755'>lifts heavy object </span> and <span style='color:#DF1817'> places it on a surface</span>.",
-        "7: A person <span style='color:#06C755'>runs on the spot</span>.",
-    ]);
+      var sectionTop = section.offsetTop;
+      var sectionBottom = sectionTop + section.offsetHeight;
 
-    // Third row captions
-    attachTimedCaption('long-horizon-rotating-caption-3', [
-        "1: The person <span style='color:#06C755'>calmly steps back</span>.",
-        "2: The person <span style='color:#06C755'>is has both hands on his legs</span>.",
-        "3: The person <span style='color:#06C755'>walks happily dancing</span>.",
-        "4: The person <span style='color:#06C755'>waves his left hands</span>.",
-        "5: The person <span style='color:#06C755'>puts both hands behind his back</span>.",
-        "6: The person <span style='color:#06C755'>is jumping with a rope</span>.",
-        "7: The person <span style='color:#06C755'>is impatiently running out into the open</span>.",
-    ]);
+      if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+        activeIndex = i;
+        break;
+      }
 
-    // Fourth row captions
-    attachTimedCaption('long-horizon-rotating-caption-4', [
-        "1: The person <span style='color:#06C755'>walks around while looking at a phone</span>.",
-        "2: A person <span style='color:#06C755'>stretches both arms upward</span>.",
-        "3: The man <span style='color:#06C755'>looks around curiously</span>.",
-        "4: A person <span style='color:#06C755'>steps sideways carefully</span>.",
-        "5: A person <span style='color:#06C755'>claps their hands</span>.",
-        "6: A person <span style='color:#06C755'>balances on one leg for a few seconds</span>.",
-        "7: A person <span style='color:#06C755'>waves both hands in excitement</span>.",
-    ]);
+      if (scrollPos < sectionTop) {
+        break;
+      }
 
-    // Fifth row captions
-    attachTimedCaption('long-horizon-rotating-caption-5', [
-        "1: A person <span style='color:#06C755'>stretches their right leg forward</span>.",
-        "2: A person <span style='color:#06C755'>is walking on a treadmill</span>.",
-        "3: A person <span style='color:#06C755'>waves to someone on the left</span>.",
-        "4: A person <span style='color:#06C755'>sits down and crosses their legs</span>.",
-        "5: A person <span style='color:#06C755'>raises one hand to ask a question</span>.",
-        "6: A man <span style='color:#06C755'>performs a few squats</span>.",
-        "7: A person <span style='color:#06C755'>slowly walks backward</span>.",
-    ]);
-
-    // SnapMoGen Long-Horizon captions - First row
-    attachTimedCaption('snap-long-horizon-caption-1', [
-        "1: A person <span style='color:#06C755'>slowly walks into the room</span> and <span style='color:#DF1817'>looks around</span>.",
-        "2: A person <span style='color:#06C755'>leans forward</span> to <span style='color:#DF1817'>inspect something on the floor</span>.",
-        "3: A person <span style='color:#06C755'>kneels down</span> and <span style='color:#DF1817'>checks under a table</span>.",
-        "4: A person <span style='color:#06C755'>stands up</span> and <span style='color:#DF1817'>stretches their back</span>.",
-        "5: A person <span style='color:#06C755'>walks toward a window</span> and <span style='color:#DF1817'>peeks outside</span>.",
-        "6: A person <span style='color:#06C755'>turns around</span>.",
-        "7: A person <span style='color:#06C755'>runs straight forward</span>.",
-    ]);
-
-    // SnapMoGen Long-Horizon captions - Second row
-    attachTimedCaption('snap-long-horizon-caption-2', [
-        "1: A person <span style='color:#06C755'>takes a step back</span> and <span style='color:#DF1817'>raises both hands in preparation</span>.",
-        "2: A person <span style='color:#06C755'>performs a slow squat</span> and <span style='color:#DF1817'>stands up again</span>.",
-        "3: A person <span style='color:#06C755'>lifts their knees alternately</span> <span style='color:#DF1817'>in a marching motion</span>.",
-        "4: A person <span style='color:#06C755'>raises both arms sideways</span> while <span style='color:#DF1817'>maintaining posture</span>.",
-        "5: A person <span style='color:#06C755'>bends forward to touch their toes</span> and <span style='color:#DF1817'>straightens up</span>.",
-        "6: A person <span style='color:#06C755'>takes a short run forward</span> and <span style='color:#DF1817'>stops abruptly</span>.",
-        "7: A person <span style='color:#06C755'>jumps vertically</span> with <span style='color:#DF1817'>both feet leaving the ground</span>.",
-    ]);
-
-    // SnapMoGen Long-Horizon captions - Third row
-    attachTimedCaption('snap-long-horizon-caption-3', [
-        "1: A person <span style='color:#06C755'>places both hands on their cheeks</span> <span style='color:#DF1817'>in surprise</span>.",
-        "2: A person <span style='color:#06C755'>lifts a hand</span> and <span style='color:#DF1817'>makes a gentle stopping gesture</span>.",
-        "3: A person <span style='color:#06C755'>lifts both hands in excitement</span> and <span style='color:#DF1817'>waves them</span>.",
-        "4: A person <span style='color:#06C755'>crosses their arms</span> and <span style='color:#DF1817'>stands still</span>.",
-        "5: A person <span style='color:#06C755'>twists their body to the right</span> and <span style='color:#DF1817'>looks to the right</span>.",
-        "6: A person <span style='color:#06C755'>claps their hands</span> <span style='color:#DF1817'>enthusiastically</span>.",
-        "7: A person <span style='color:#06C755'>ends by bowing slightly</span> with <span style='color:#DF1817'>palms together</span>.",
-    ]);
-
-    // Sidebar navigation functionality
-    var sidebar = document.getElementById('sidebar');
-    var sidebarItems = document.querySelectorAll('.sidebar-item');
-    // Sections must match sidebar item order: Abstract, Method, Long-Horizon HumanML3D, etc.
-    var sections = ['abstract', 'method', 'long-horizon-humanml3d', 'text-to-motion-humanml3d', 'long-horizon-snapmogen', 'text-to-motion-snapmogen', 'BibTeX'];
-    var body = document.body;
-    
-    // Update active sidebar item on scroll
-    function updateActiveSidebarItem() {
-        var scrollPos = window.scrollY + 150; // Offset for better UX
-        
-        var activeIndex = 0;
-        for (var i = 0; i < sections.length; i++) {
-            var section = document.getElementById(sections[i]);
-            if (section) {
-                var sectionTop = section.offsetTop;
-                var sectionBottom = sectionTop + section.offsetHeight;
-                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-                    activeIndex = i;
-                    break;
-                }
-                if (scrollPos < sectionTop) {
-                    break;
-                }
-                activeIndex = i;
-            }
-        }
-        
-        sidebarItems.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        if (sidebarItems[activeIndex]) {
-            sidebarItems[activeIndex].classList.add('active');
-        }
+      activeIndex = i;
     }
-    
-    // Update on scroll
-    window.addEventListener('scroll', updateActiveSidebarItem);
-    updateActiveSidebarItem(); // Initial check
-    
-    // Smooth scroll for sidebar links
+
     sidebarItems.forEach(function(item) {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            var targetId = this.getAttribute('href').substring(1);
-            var targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                // Immediately highlight the clicked item
-                sidebarItems.forEach(function(i) { i.classList.remove('active'); });
-                item.classList.add('active');
-                
-                var offsetTop = targetSection.offsetTop - 20;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (window.innerWidth < 1024) {
-                    sidebar.classList.remove('mobile-open');
-                }
-            }
-        });
+      item.classList.remove('active');
     });
-    
-    // Sidebar toggle button (mobile & desktop)
-    var sidebarToggleButton = document.createElement('button');
-    sidebarToggleButton.className = 'sidebar-toggle';
-    sidebarToggleButton.innerHTML = '✕';
-    sidebarToggleButton.setAttribute('aria-label', 'Hide navigation');
-    sidebarToggleButton.setAttribute('aria-expanded', 'true');
-    document.body.appendChild(sidebarToggleButton);
 
-    function updateSidebarToggleState() {
-        var isMobile = window.innerWidth < 1024;
-        if (!isMobile) {
-            sidebar.classList.remove('mobile-open');
-        }
-        var isHidden = isMobile ? !sidebar.classList.contains('mobile-open') : body.classList.contains('sidebar-hidden');
-        sidebarToggleButton.innerHTML = isHidden ? '☰' : '✕';
-        sidebarToggleButton.setAttribute('aria-label', isHidden ? 'Show navigation' : 'Hide navigation');
-        sidebarToggleButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+    if (sidebarItems[activeIndex]) {
+      sidebarItems[activeIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveSidebarItem);
+  updateActiveSidebarItem();
+
+  sidebarItems.forEach(function(item) {
+    item.addEventListener('click', function(event) {
+      event.preventDefault();
+      var targetId = item.getAttribute('href').substring(1);
+      var targetSection = document.getElementById(targetId);
+
+      if (!targetSection) {
+        return;
+      }
+
+      sidebarItems.forEach(function(sidebarItem) {
+        sidebarItem.classList.remove('active');
+      });
+      item.classList.add('active');
+
+      window.scrollTo({
+        top: targetSection.offsetTop - 20,
+        behavior: 'smooth'
+      });
+
+      if (window.innerWidth < 1024) {
+        sidebar.classList.remove('mobile-open');
+        updateSidebarToggleState();
+      }
+    });
+  });
+
+  var sidebarToggleButton = document.createElement('button');
+  sidebarToggleButton.className = 'sidebar-toggle';
+  sidebarToggleButton.setAttribute('aria-label', 'Hide navigation');
+  sidebarToggleButton.setAttribute('aria-expanded', 'true');
+  document.body.appendChild(sidebarToggleButton);
+
+  function updateSidebarToggleState() {
+    var isMobile = window.innerWidth < 1024;
+
+    if (!isMobile) {
+      sidebar.classList.remove('mobile-open');
     }
 
-    sidebarToggleButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        if (window.innerWidth < 1024) {
-            sidebar.classList.toggle('mobile-open');
-        } else {
-            body.classList.toggle('sidebar-hidden');
-        }
-        updateSidebarToggleState();
-    });
+    var isHidden = isMobile ? !sidebar.classList.contains('mobile-open') : body.classList.contains('sidebar-hidden');
+    sidebarToggleButton.textContent = isHidden ? '\u2630' : '\u00d7';
+    sidebarToggleButton.setAttribute('aria-label', isHidden ? 'Show navigation' : 'Hide navigation');
+    sidebarToggleButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+  }
 
-    window.addEventListener('resize', updateSidebarToggleState);
+  sidebarToggleButton.addEventListener('click', function(event) {
+    event.stopPropagation();
 
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth < 1024) {
-            if (!sidebar.contains(e.target) && !sidebarToggleButton.contains(e.target)) {
-                sidebar.classList.remove('mobile-open');
-                updateSidebarToggleState();
-            }
-        }
-    });
+    if (window.innerWidth < 1024) {
+      sidebar.classList.toggle('mobile-open');
+    } else {
+      body.classList.toggle('sidebar-hidden');
+    }
 
     updateSidebarToggleState();
-})
+  });
+
+  window.addEventListener('resize', updateSidebarToggleState);
+
+  document.addEventListener('click', function(event) {
+    if (window.innerWidth >= 1024) {
+      return;
+    }
+
+    if (!sidebar.contains(event.target) && !sidebarToggleButton.contains(event.target)) {
+      sidebar.classList.remove('mobile-open');
+      updateSidebarToggleState();
+    }
+  });
+
+  updateSidebarToggleState();
+});
